@@ -5,8 +5,8 @@ permalink: /blogs/
 ---
 
 <ul class="post-list">
-  {%- for post in posts -%}
-  {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+  {% for post in site.posts %}
+  {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
   <li>
     <span class="post-meta">{{ post.date | date: date_format }}</span>
     <h3>
@@ -14,9 +14,9 @@ permalink: /blogs/
         {{ post.title | escape }}
       </a>
     </h3>
-    {%- if site.show_excerpts -%}
+    {% if site.show_excerpts %}
       {{ post.excerpt }}
-    {%- endif -%}
+    {% endif %}
   </li>
-  {%- endfor -%}
+  {% endfor %}
 </ul>
